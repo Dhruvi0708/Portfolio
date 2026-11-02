@@ -74,7 +74,7 @@ export default function Journey() {
     <div ref={outer} id="journey" data-stage={6} aria-labelledby="journey-title">
       <section ref={pin} className="relative overflow-hidden md:h-[100svh]">
         <div ref={heading} className="px-5 pt-28 md:absolute md:inset-x-0 md:top-0 md:z-10 md:px-10 md:pt-28">
-          <p className="label mb-4 text-sodium">
+          <p className="label mb-4 text-accent">
             <Scramble text="04 — Signal log" />
           </p>
           <RiseText as="h2" text="Every spike is a story." className="display max-w-[14ch] text-[15vw] md:text-[6vw]" />
@@ -87,14 +87,14 @@ export default function Journey() {
         <div ref={track} className="relative hidden h-full w-max items-center md:flex" style={{ paddingLeft: '30vw', paddingRight: '20vw' }}>
           <svg className="pointer-events-none absolute left-[30vw] top-1/2 -translate-y-1/2" width={W} height="220" viewBox={`0 0 ${W} 220`} aria-hidden>
             <line x1="0" x2={W} y1="110" y2="110" stroke="currentColor" className="text-bone/10" strokeDasharray="2 6" />
-            <path ref={path} d={tracePath(journey.length, W, 220)} fill="none" stroke="#ff5b1f" strokeWidth="1.4" strokeLinejoin="round" />
+            <path ref={path} d={tracePath(journey.length, W, 220)} fill="none" stroke="#ff4f8b" strokeWidth="1.4" strokeLinejoin="round" />
           </svg>
           {journey.map((j, i) => (
             <div key={i} data-entry className="relative flex h-full w-[600px] shrink-0 flex-col items-center justify-center">
-              <span data-entry-in className="absolute top-1/2 h-3 w-3 -translate-y-1/2 rounded-full border-2 border-sodium bg-ink" />
+              <span data-entry-in className="absolute top-1/2 h-3 w-3 -translate-y-1/2 rounded-full border-2 border-accent bg-ink" />
               <div className={`absolute w-[320px] text-center ${i % 2 ? 'bottom-[calc(50%+90px)]' : 'top-[calc(50%+90px)]'}`}>
                 <p data-entry-in className="label mb-3 flex items-center justify-center gap-3 text-bone-dim">
-                  <span className={j.kind === 'next' ? 'text-sodium' : ''}>{KIND[j.kind]}</span>
+                  <span className={j.kind === 'next' ? 'text-accent' : ''}>{KIND[j.kind]}</span>
                   <span className="h-px w-6 bg-bone/30" />
                   <T>{j.when}</T>
                 </p>
@@ -110,12 +110,12 @@ export default function Journey() {
         </div>
 
         {/* Mobile: vertical trace */}
-        <ol className="relative mx-5 mt-14 border-l border-sodium/50 pb-24 md:hidden">
+        <ol className="relative mx-5 mt-14 border-l border-accent/50 pb-24 md:hidden">
           {journey.map((j, i) => (
             <li key={i} className="relative pb-12 pl-8 last:pb-0">
-              <span className="absolute -left-[7px] top-1 h-3 w-3 rounded-full border-2 border-sodium bg-ink" />
+              <span className="absolute -left-[7px] top-1 h-3 w-3 rounded-full border-2 border-accent bg-ink" />
               <p className="label mb-2 text-bone-dim">
-                <span className={j.kind === 'next' ? 'text-sodium' : ''}>{KIND[j.kind]}</span> · <T>{j.when}</T>
+                <span className={j.kind === 'next' ? 'text-accent' : ''}>{KIND[j.kind]}</span> · <T>{j.when}</T>
               </p>
               <h3 className="font-serif text-3xl leading-none">
                 <T>{j.title}</T>

@@ -31,8 +31,8 @@ const MOBILE: Key[] = [
   [0, 4.4, 9, 0, -1.6, 0],
 ];
 
-const BG_DARK = new THREE.Color('#0c0b09');
-const BG_LIGHT = new THREE.Color('#ece5d8');
+const BG_DARK = new THREE.Color('#0b0e0f');
+const BG_LIGHT = new THREE.Color('#e7ebe7');
 
 function Rig({ mobile }: { mobile: boolean }) {
   const { camera } = useThree();
@@ -111,12 +111,12 @@ export default function Experience({ onReady }: { onReady: () => void }) {
     >
       <Rig mobile={mobile} />
       <ambientLight intensity={0.15} />
-      <directionalLight position={[3, 4, 5]} intensity={0.6} color="#fff2e2" />
+      <directionalLight position={[3, 4, 5]} intensity={0.6} color="#f1f5f7" />
       <Environment resolution={256} frames={1}>
-        <Lightformer form="rect" intensity={3} color="#fff4e6" position={[0, 5, -6]} scale={[12, 2, 1]} />
+        <Lightformer form="rect" intensity={3} color="#f3f6f8" position={[0, 5, -6]} scale={[12, 2, 1]} />
         <Lightformer form="rect" intensity={1.6} color="#ffffff" position={[-6, 1, 2]} rotation-y={Math.PI / 2} scale={[8, 1.2, 1]} />
-        <Lightformer form="ring" intensity={4} color="#ff5b1f" position={[5, -2, 3]} scale={3} />
-        <Lightformer form="rect" intensity={0.8} color="#c8b8a0" position={[0, -5, 0]} rotation-x={Math.PI / 2} scale={[10, 10, 1]} />
+        <Lightformer form="ring" intensity={4} color="#ff4f8b" position={[5, -2, 3]} scale={3} />
+        <Lightformer form="rect" intensity={0.8} color="#9fb8b2" position={[0, -5, 0]} rotation-x={Math.PI / 2} scale={[10, 10, 1]} />
       </Environment>
       <BlackBox />
       <Particles count={count} />

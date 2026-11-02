@@ -11,8 +11,9 @@ export default {
           dim: 'rgb(var(--bone-dim) / <alpha-value>)',
           faint: 'rgb(var(--bone-faint) / <alpha-value>)',
         },
-        sodium: { DEFAULT: '#ff5b1f', soft: '#ff8a5c' },
-        phosphor: '#c8f560',
+        // Sampled from the portrait: the rose shirt and the glacier-fed river.
+        accent: { DEFAULT: '#ff4f8b', soft: '#ff8fb4' },
+        glacier: '#8fd6c8',
       },
       fontFamily: {
         serif: ['"Instrument Serif"', 'Georgia', 'serif'],

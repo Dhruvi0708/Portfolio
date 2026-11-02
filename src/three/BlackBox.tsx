@@ -25,9 +25,9 @@ export default function BlackBox() {
     c.width = c.height = 128;
     const g = c.getContext('2d')!;
     const grd = g.createRadialGradient(64, 64, 0, 64, 64, 64);
-    grd.addColorStop(0, 'rgba(255,140,80,1)');
-    grd.addColorStop(0.25, 'rgba(255,91,31,0.45)');
-    grd.addColorStop(1, 'rgba(255,91,31,0)');
+    grd.addColorStop(0, 'rgba(255,176,204,1)');
+    grd.addColorStop(0.25, 'rgba(255,79,139,0.45)');
+    grd.addColorStop(1, 'rgba(255,79,139,0)');
     g.fillStyle = grd;
     g.fillRect(0, 0, 128, 128);
     return new THREE.CanvasTexture(c);
@@ -72,10 +72,10 @@ export default function BlackBox() {
 
   return (
     <group ref={group}>
-      <pointLight ref={light} color="#ff5b1f" distance={6} decay={2} />
+      <pointLight ref={light} color="#ff4f8b" distance={6} decay={2} />
       <mesh ref={core}>
         <sphereGeometry args={[1, 32, 32]} />
-        <meshBasicMaterial color="#fff1e6" toneMapped={false} />
+        <meshBasicMaterial color="#ffe3ee" toneMapped={false} />
       </mesh>
       <mesh ref={halo}>
         <planeGeometry args={[1, 1]} />
@@ -87,7 +87,7 @@ export default function BlackBox() {
             <meshPhysicalMaterial color="#0e0d0c" metalness={0.85} roughness={0.28} clearcoat={1} clearcoatRoughness={0.15} envMapIntensity={1.2} />
           </RoundedBox>
           <lineSegments geometry={edges}>
-            <lineBasicMaterial color="#ff5b1f" transparent opacity={0.22} />
+            <lineBasicMaterial color="#ff4f8b" transparent opacity={0.22} />
           </lineSegments>
         </group>
       ))}

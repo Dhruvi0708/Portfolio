@@ -147,7 +147,7 @@ export default function Nav({ visible }: { visible: boolean }) {
                     data-cursor
                   >
                     <span className="label w-8 text-bone-faint">{String(i + 1).padStart(2, '0')}</span>
-                    <span className={`display text-[13vw] transition-all duration-500 group-hover:translate-x-4 group-hover:italic group-hover:text-sodium md:text-[6.5vw] ${i === active ? 'text-bone' : 'text-bone/70'}`}>
+                    <span className={`display text-[13vw] transition-all duration-500 group-hover:translate-x-4 group-hover:italic group-hover:text-accent md:text-[6.5vw] ${i === active ? 'text-bone' : 'text-bone/70'}`}>
                       {s.label}
                     </span>
                   </motion.button>

@@ -45,7 +45,7 @@ export default function App() {
 
   return (
     <>
-      <a href="#about" className="label fixed left-4 top-4 z-[100] -translate-y-20 bg-sodium px-3 py-2 text-ink focus:translate-y-0">
+      <a href="#about" className="label fixed left-4 top-4 z-[100] -translate-y-20 bg-accent px-3 py-2 text-ink focus:translate-y-0">
         Skip to content
       </a>
       {webgl ? (
@@ -53,7 +53,7 @@ export default function App() {
           <Experience onReady={onReady} />
         </Suspense>
       ) : (
-        <div aria-hidden className="fixed inset-0 bg-[radial-gradient(60%_50%_at_50%_45%,rgba(255,91,31,0.18),transparent_70%)]" />
+        <div aria-hidden className="fixed inset-0 bg-[radial-gradient(60%_50%_at_50%_45%,rgba(255,79,139,0.18),transparent_70%)]" />
       )}
       <div className="vignette" aria-hidden />
       <div className="grain" aria-hidden />

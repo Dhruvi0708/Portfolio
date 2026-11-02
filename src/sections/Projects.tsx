@@ -8,7 +8,7 @@ import { AutopsyPreview, CipherPreview, LuminaPreview } from '../components/Prev
 import CaseStudy from '../components/CaseStudy';
 
 const PREVIEW = { forensic: AutopsyPreview, cipher: CipherPreview, lumina: LuminaPreview };
-const ACCENT = { forensic: 'text-sodium', cipher: 'text-[#9cc23a]', lumina: 'text-[#d9822b]' };
+const ACCENT = { forensic: 'text-accent', cipher: 'text-[#9cc23a]', lumina: 'text-[#d9822b]' };
 
 function Chapter({ p, stage, onOpen }: { p: Project; stage: number; onOpen: (p: Project) => void }) {
   const root = useRef<HTMLElement>(null);
@@ -81,7 +81,7 @@ function Chapter({ p, stage, onOpen }: { p: Project; stage: number; onOpen: (p: 
 
           <button onClick={() => onOpen(p)} className="group mt-12 flex items-center gap-5" data-cursor>
             <span className="relative grid h-16 w-16 place-items-center overflow-hidden rounded-full border border-bone/25">
-              <span className="absolute inset-0 origin-bottom scale-y-0 bg-sodium transition-transform duration-500 ease-out group-hover:scale-y-100" />
+              <span className="absolute inset-0 origin-bottom scale-y-0 bg-accent transition-transform duration-500 ease-out group-hover:scale-y-100" />
               <span className="relative transition-transform duration-500 group-hover:rotate-45">↗</span>
             </span>
             <span className="font-serif text-3xl transition-all duration-500 group-hover:italic">
@@ -126,7 +126,7 @@ export default function Projects() {
   return (
     <section id="work" aria-labelledby="work-title">
       <div className="px-5 pt-20 md:px-10 md:pt-32">
-        <p className="label mb-4 text-sodium">
+        <p className="label mb-4 text-accent">
           <Scramble text="03 — Case files" />
         </p>
         <RiseText as="h2" text="Three investigations." className="display max-w-[12ch] text-[15vw] md:text-[8.5vw]" />

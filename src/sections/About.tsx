@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { about } from '../content';
 import { RiseText, Reveal, T, Scramble } from '../components/Text';
+import Portrait from '../components/Portrait';
 
 /*
  * Field notes. An editorial spread instead of a two-column bio:
@@ -31,33 +32,36 @@ export default function About() {
   }, []);
 
   const words = about.manifesto.split(' ');
-  const accent = new Set(['black', 'boxes,', 'hidden', 'beautiful']);
+  const highlighted = new Set(['black', 'boxes,', 'hidden', 'beautiful']);
 
   return (
     <section ref={root} id="about" data-stage={1} className="relative px-5 py-28 md:px-10 md:py-44" aria-labelledby="about-title">
-      <div className="mb-16 flex items-end justify-between gap-6 md:mb-24">
-        <div>
-          <p className="label mb-4 text-sodium">
+      <div className="grid gap-16 md:grid-cols-12 md:gap-10">
+        <div className="md:col-span-7">
+          <p className="label mb-4 text-accent">
             <Scramble text="01 — Field notes" />
           </p>
-          <RiseText as="h2" text="The person inside the box." className="display max-w-[14ch] text-[15vw] md:text-[8.5vw]" />
+          <RiseText as="h2" text="The person inside the box." className="display max-w-[12ch] text-[15vw] md:text-[7.4vw]" />
           <span id="about-title" className="sr-only">
             About
           </span>
         </div>
-      </div>
+        <div className="md:col-span-5 md:col-start-8 md:row-span-3 md:pt-6">
+          <div className="md:sticky md:top-28">
+            <Portrait />
+          </div>
+        </div>
 
-      <div className="grid gap-16 md:grid-cols-12 md:gap-10">
-        <p data-manifesto className="font-serif text-[2rem] leading-[1.08] md:col-span-8 md:col-start-1 md:text-[3.6rem]">
+        <p data-manifesto className="font-serif text-[2rem] leading-[1.08] md:col-span-7 md:text-[3.1rem]">
           {words.map((w, i) => (
-            <span key={i} data-mw className={accent.has(w.toLowerCase()) ? 'italic text-sodium' : ''}>
+            <span key={i} data-mw className={highlighted.has(w.toLowerCase()) ? 'italic text-accent' : ''}>
               {w}{' '}
             </span>
           ))}
         </p>
 
         {/* Marginalia */}
-        <aside className="md:col-span-4 md:col-start-9 md:pt-3" aria-label="Principles">
+        <aside className="md:col-span-7" aria-label="Principles">
           <p className="label mb-6 text-bone-dim">Working principles</p>
           <ol className="border-t border-bone/15">
             {about.principles.map((p, i) => (
@@ -89,7 +93,7 @@ export default function About() {
           {[...about.interests, ...about.interests].map((it, i) => (
             <li key={i} className="flex items-center gap-12 font-serif text-4xl text-bone/80 md:text-6xl" aria-hidden={i >= about.interests.length}>
               <span className={i % 2 ? 'italic' : ''}>{it}</span>
-              <span className="text-xl text-sodium">✳</span>
+              <span className="text-xl text-accent">✳</span>
             </li>
           ))}
         </ul>

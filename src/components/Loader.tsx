@@ -53,14 +53,14 @@ export default function Loader({ ready, onDone }: { ready: boolean; onDone: () =
       <div data-shutter="bottom" className="absolute inset-x-0 bottom-0 h-1/2 bg-ink" />
       <div className="absolute inset-0 flex flex-col items-center justify-center px-6">
         <div data-loader-fade className="label mb-6 flex items-center gap-3 text-bone-dim">
-          <span className="h-1.5 w-1.5 rounded-full bg-sodium" style={{ animation: 'blink 0.9s steps(1) infinite' }} />
+          <span className="h-1.5 w-1.5 rounded-full bg-accent" style={{ animation: 'blink 0.9s steps(1) infinite' }} />
           {LINES[line]}
         </div>
         <div data-loader-fade className="display text-[22vw] tabular-nums text-bone md:text-[13vw]">
           {String(count).padStart(3, '0')}
         </div>
         <div data-loader-fade className="mt-8 h-px w-[min(420px,70vw)] bg-bone/10">
-          <div className="h-full bg-sodium" style={{ width: `${count}%` }} />
+          <div className="h-full bg-accent" style={{ width: `${count}%` }} />
         </div>
         <div data-loader-fade className="label mt-4 text-bone-faint">
           Noise → Signal

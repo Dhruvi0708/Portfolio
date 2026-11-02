@@ -10,8 +10,7 @@
  */
 
 export const profile = {
-  // Taken from your git author name. Change if you want your full name.
-  name: 'Dhruvi',
+  name: 'Dhruvi Patel',
   role: 'Software · AI · Digital experiences',
   // One line, shown under the name in the hero.
   intro:
@@ -227,13 +226,13 @@ export const journey: { when: string; kind: 'hackathon' | 'event' | 'build' | 'l
     when: 'TODO: Year',
     kind: 'hackathon',
     title: 'Web Lumina',
-    body: 'TODO: Web design hackathon � your role and what came of it.',
+    body: 'TODO: Web design hackathon — your role and what came of it.',
   },
   {
     when: 'TODO: Year',
     kind: 'event',
     title: 'Debug Decrypt 3.0',
-    body: 'Technical event and platform. TODO: your role — organising, building, leading.',
+    body: 'TODO: Technical event and platform — your role: organising, building, leading.',
   },
   {
     when: '2026',

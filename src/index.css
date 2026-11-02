@@ -3,12 +3,12 @@
 @tailwind utilities;
 
 :root {
-  --page-bg: #0c0b09;
-  --ink: 12 11 9;
-  --ink-2: 20 18 15;
-  --bone: 236 229 216;
-  --bone-dim: 163 155 140;
-  --bone-faint: 104 97 86;
+  --page-bg: #0b0e0f;
+  --ink: 11 14 15;
+  --ink-2: 19 23 25;
+  --bone: 231 235 231;
+  --bone-dim: 150 160 158;
+  --bone-faint: 95 106 105;
   color-scheme: dark;
 }
 
@@ -20,11 +20,11 @@
 
 /* Web Lumina chapter: the page turns to light. */
 :root[data-theme='light'] {
-  --ink: 236 229 216;
-  --ink-2: 226 218 204;
-  --bone: 20 18 15;
-  --bone-dim: 88 82 72;
-  --bone-faint: 138 130 118;
+  --ink: 230 236 233;
+  --ink-2: 218 226 223;
+  --bone: 17 22 24;
+  --bone-dim: 78 88 90;
+  --bone-faint: 128 138 138;
 }
 
 @layer base {
@@ -48,11 +48,11 @@
     overflow-x: clip;
   }
   ::selection {
-    background: #ff5b1f;
-    color: #0c0b09;
+    background: #ff4f8b;
+    color: #0b0e0f;
   }
   :focus-visible {
-    outline: 1.5px solid #ff5b1f;
+    outline: 1.5px solid #ff4f8b;
     outline-offset: 4px;
     border-radius: 2px;
   }
@@ -75,7 +75,7 @@
   }
   /* Placeholder text coming from content.ts ("TODO: …"). */
   .todo {
-    @apply italic text-bone-dim decoration-sodium/60 decoration-dashed underline-offset-4;
+    @apply italic text-bone-dim decoration-accent/60 decoration-dashed underline-offset-4;
     text-decoration-line: underline;
   }
   .grain {
@@ -111,6 +111,10 @@
 
 @keyframes marquee {
   to { transform: translateX(-50%); }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
 }
 
 @keyframes blink {

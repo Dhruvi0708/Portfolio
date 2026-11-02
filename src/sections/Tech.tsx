@@ -20,7 +20,7 @@ export default function Tech() {
 
   return (
     <section id="tech" data-stage={2} className="relative min-h-[130vh] px-5 py-28 md:px-10 md:py-40" aria-labelledby="tech-title">
-      <p className="label mb-4 text-sodium">
+      <p className="label mb-4 text-accent">
         <Scramble text="02 — Instruments" />
       </p>
       <RiseText as="h2" text="Six orbits I work in." className="display max-w-[12ch] text-[15vw] md:text-[8.5vw]" />
@@ -60,8 +60,8 @@ export default function Tech() {
                   {c.label}
                 </span>
               </span>
-              <span className={`label tabular-nums transition-colors ${active === i ? 'text-sodium' : 'text-bone-faint'}`}>{String(c.items.length).padStart(2, '0')}</span>
-              <span className={`absolute bottom-[-1px] left-0 h-px bg-sodium transition-all duration-700 ${active === i ? 'w-full' : 'w-0'}`} />
+              <span className={`label tabular-nums transition-colors ${active === i ? 'text-accent' : 'text-bone-faint'}`}>{String(c.items.length).padStart(2, '0')}</span>
+              <span className={`absolute bottom-[-1px] left-0 h-px bg-accent transition-all duration-700 ${active === i ? 'w-full' : 'w-0'}`} />
             </button>
           ))}
         </div>
@@ -84,7 +84,7 @@ export default function Tech() {
                     variants={{ hide: { opacity: 0, y: 12 }, show: { opacity: 1, y: 0, transition: { delay: i * 0.04 } } }}
                     className="flex items-center gap-2 font-mono text-sm"
                   >
-                    <span className="h-1 w-1 rounded-full bg-sodium" />
+                    <span className="h-1 w-1 rounded-full bg-accent" />
                     {it}
                   </motion.li>
                 ))}
@@ -106,7 +106,7 @@ export default function Tech() {
                       style={{ left: `${x}%`, top: `${y}%` }}
                     >
                       <span className="flex items-center gap-2 whitespace-nowrap rounded-full border border-bone/15 bg-ink/60 px-4 py-2 font-mono text-[13px] backdrop-blur-md">
-                        <span className="h-1.5 w-1.5 rounded-full bg-sodium" />
+                        <span className="h-1.5 w-1.5 rounded-full bg-accent" />
                         {it}
                       </span>
                     </motion.li>
