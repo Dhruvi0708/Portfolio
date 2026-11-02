@@ -1,6 +1,6 @@
 import { lazy, Suspense, useCallback, useEffect, useState } from 'react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import Loader from './components/Loader';
+import Intro from './components/Intro';
 import Nav from './components/Nav';
 import Cursor from './components/Cursor';
 import Hero from './sections/Hero';
@@ -9,7 +9,7 @@ import Tech from './sections/Tech';
 import Projects from './sections/Projects';
 import Journey from './sections/Journey';
 import Contact from './sections/Contact';
-import { initSmoothScroll } from './lib/smooth';
+import { initSmoothScroll, lockScroll } from './lib/smooth';
 import { store } from './lib/store';
 
 // The WebGL layer is split out so text paints before three.js downloads.
@@ -32,7 +32,9 @@ export default function App() {
   useEffect(() => {
     history.scrollRestoration = 'manual';
     window.scrollTo(0, 0);
-    return initSmoothScroll();
+    const cleanup = initSmoothScroll();
+    lockScroll(true); // released by the intro when it hands over
+    return cleanup;
   }, []);
 
   const onReady = useCallback(() => setReady(true), []);
@@ -50,7 +52,7 @@ export default function App() {
       </a>
       {webgl ? (
         <Suspense fallback={null}>
-          <Experience onReady={onReady} />
+          <Experience onReady={onReady} paused={!entered} />
         </Suspense>
       ) : (
         <div aria-hidden className="fixed inset-0 bg-[radial-gradient(60%_50%_at_50%_45%,rgba(255,79,139,0.18),transparent_70%)]" />
@@ -69,7 +71,7 @@ export default function App() {
       </main>
 
       <Cursor />
-      <Loader ready={ready} onDone={onDone} />
+      <Intro ready={ready} webgl={webgl} onDone={onDone} />
     </>
   );
 }

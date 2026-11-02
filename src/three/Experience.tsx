@@ -83,7 +83,7 @@ function Rig({ mobile }: { mobile: boolean }) {
   return null;
 }
 
-export default function Experience({ onReady }: { onReady: () => void }) {
+export default function Experience({ onReady, paused }: { onReady: () => void; paused: boolean }) {
   const mobile = typeof window !== 'undefined' && window.innerWidth < 768;
   const count = mobile ? 4200 : 9000;
 
@@ -91,6 +91,7 @@ export default function Experience({ onReady }: { onReady: () => void }) {
     const onMove = (e: PointerEvent) => {
       store.pointer.x = (e.clientX / window.innerWidth) * 2 - 1;
       store.pointer.y = -(e.clientY / window.innerHeight) * 2 + 1;
+      store.pointerSeen = true;
     };
     window.addEventListener('pointermove', onMove, { passive: true });
     return () => window.removeEventListener('pointermove', onMove);
@@ -99,6 +100,8 @@ export default function Experience({ onReady }: { onReady: () => void }) {
   return (
     <Canvas
       className="!fixed inset-0 !h-[100lvh] !w-full"
+      // held still while the intro owns the GPU
+      frameloop={paused ? 'never' : 'always'}
       dpr={[1, mobile ? 1.5 : 1.75]}
       gl={{ antialias: true, alpha: true, powerPreference: 'high-performance' }}
       camera={{ position: [0, 0, 8], fov: 42, near: 0.1, far: 60 }}

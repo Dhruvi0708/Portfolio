@@ -115,17 +115,10 @@ export default function Hero({ entered }: { entered: boolean }) {
   return (
     <section ref={root} id="hero" data-stage={0} className="relative flex h-[100svh] min-h-[600px] flex-col justify-between px-5 pb-6 pt-24 md:px-10 md:pb-10 md:pt-28" aria-label="Introduction">
       <div data-hero-meta className="flex items-start justify-between gap-6">
-        <div data-hero-fade className="flex items-center gap-4">
-          <span className="relative block h-12 w-12 shrink-0 md:h-14 md:w-14">
-            <img src="/dhruvi-face.webp" alt="Portrait of Dhruvi Patel" width={56} height={56} className="h-full w-full rounded-full object-cover" />
-            <span className="absolute -inset-1 rounded-full border border-glacier/60" aria-hidden />
-            <span className="absolute bottom-0 right-0 h-3 w-3 rounded-full border-2 border-ink bg-glacier" aria-hidden />
-          </span>
-          <span className="label max-w-[16rem] leading-relaxed text-bone-dim">
-            Hi, I’m Dhruvi
-            <br />
-            <span className="text-bone">{profile.role}</span>
-          </span>
+        <div data-hero-fade className="label max-w-[16rem] leading-relaxed text-bone-dim">
+          Hi, I’m Dhruvi
+          <br />
+          <span className="text-bone">{profile.role}</span>
         </div>
         <div data-hero-fade className="label hidden text-right leading-relaxed text-bone-dim md:block">
           Status

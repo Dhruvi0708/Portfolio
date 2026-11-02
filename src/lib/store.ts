@@ -10,12 +10,16 @@ export const store = {
   stage: 0,
   /** Pointer in normalised device coordinates (-1..1). */
   pointer: { x: 0, y: 0 },
+  /** False until the pointer first moves, so effects don't react to a cursor that isn't there. */
+  pointerSeen: false,
   /** Scroll velocity from Lenis, used for subtle distortion. */
   velocity: 0,
   /** Technology ring highlighted in the "tech" section (-1 = none). */
   activeRing: -1,
-  /** Set once the loader has finished, so the hero can animate in. */
+  /** Set once the intro has finished, so the hero can animate in. */
   entered: false,
+  /** Intro portrait: `form` 0 = noise → 1 = portrait; `exit` 0 → 1 = spiralling away. */
+  intro: { form: 0, exit: 0 },
   reducedMotion: false,
 };
 

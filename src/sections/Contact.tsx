@@ -35,24 +35,6 @@ function Magnetic({ children, className = '' }: { children: React.ReactNode; cla
   );
 }
 
-/** Dhruvi's portrait, set inline in the headline; the pill opens like an eye on scroll. */
-function FacePill() {
-  const ref = useRef<HTMLSpanElement>(null);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const ctx = gsap.context(() => {
-      gsap.fromTo(el, { width: '0em', opacity: 0 }, { width: '1.55em', opacity: 1, duration: 1.4, ease: 'expo.inOut', delay: 0.3, scrollTrigger: { trigger: el, start: 'top 85%' } });
-    });
-    return () => ctx.revert();
-  }, []);
-  return (
-    <span ref={ref} className="relative mx-[0.08em] inline-block h-[0.72em] w-[1.55em] -translate-y-[0.04em] overflow-hidden rounded-full align-baseline ring-1 ring-accent/60">
-      <img src="/dhruvi-face.webp" alt="" aria-hidden width={360} height={360} loading="lazy" className="absolute inset-0 h-full w-full object-cover object-[50%_60%]" />
-    </span>
-  );
-}
-
 const CHANNELS = [
   { key: 'github', label: 'GitHub' },
   { key: 'linkedin', label: 'LinkedIn' },
@@ -79,11 +61,7 @@ export default function Contact() {
         <p className="label mb-4 text-accent">
           <Scramble text="05 — Transmit" />
         </p>
-        <h2 className="display max-w-[14ch] text-[16vw] md:text-[9.5vw]">
-          <RiseText as="span" text="Got a signal" />
-          <FacePill />
-          <RiseText as="span" text="worth chasing?" />
-        </h2>
+        <RiseText as="h2" text="Got a signal worth chasing?" className="display max-w-[13ch] text-[16vw] md:text-[9.5vw]" />
         <span id="contact-title" className="sr-only">
           Contact
         </span>
