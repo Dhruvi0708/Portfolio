@@ -8,6 +8,7 @@ const KIND: Record<(typeof journey)[number]['kind'], string> = {
   hackathon: 'Hackathon',
   event: 'Event',
   build: 'Build',
+  work: 'Internship',
   next: 'Next',
 };
 

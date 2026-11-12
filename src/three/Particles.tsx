@@ -19,8 +19,10 @@ const vertex = /* glsl */ `
   varying float vA;
   varying float vHi;
   varying float vAcc;
+  varying float vRand;
 
   void main() {
+    vRand = aRand;
     float m = smoothstep(0.0, 1.0, clamp(uMix * 1.4 - aRand * 0.4, 0.0, 1.0));
     vec3 p = mix(position, aTo, m);
     float t = uTime * 0.35 + aRand * 20.0;
@@ -48,11 +50,14 @@ const fragment = /* glsl */ `
   uniform float uInk;
   uniform float uRingOn;
   uniform float uOpacity;
+  uniform float uThin;
   varying float vA;
   varying float vHi;
   varying float vAcc;
+  varying float vRand;
 
   void main() {
+    if (vRand < uThin) discard;
     float d = length(gl_PointCoord - 0.5);
     if (d > 0.5) discard;
     float a = smoothstep(0.5, 0.05, d);
@@ -65,7 +70,9 @@ const fragment = /* glsl */ `
 
 const NOISE = [0.5, 0.1, 0.05, 0.08, 0.06, 0.1, 0.04, 0.07];
 // Text-heavy chapters keep the field quieter so copy stays legible.
-const OPACITY = [1, 0.55, 0.9, 0.8, 0.85, 0.7, 0.9, 0.75];
+const OPACITY = [0.65, 0.55, 0.9, 0.8, 0.85, 0.7, 0.9, 0.75];
+// Share of particles hidden on the hero so the name stays readable; fades out by the next chapter.
+const HERO_THIN = 0.6;
 
 export default function Particles({ count }: { count: number }) {
   const ref = useRef<THREE.Points>(null);
@@ -104,6 +111,7 @@ export default function Particles({ count }: { count: number }) {
       uInkCol: { value: new THREE.Color('#151a1c') },
       uInk: { value: 0 },
       uOpacity: { value: 0 },
+      uThin: { value: HERO_THIN },
     }),
     [gl],
   );
@@ -131,6 +139,8 @@ export default function Particles({ count }: { count: number }) {
     u.uNoise.value = THREE.MathUtils.damp(u.uNoise.value, n + Math.min(Math.abs(store.velocity) * 0.004, 0.25), 4, dt);
     const op = OPACITY[k] + (OPACITY[Math.min(k + 1, OPACITY.length - 1)] - OPACITY[k]) * mix;
     u.uOpacity.value = THREE.MathUtils.damp(u.uOpacity.value, store.entered ? op : 0, 1.6, dt);
+
+    u.uThin.value = HERO_THIN * (1 - smoothstep(0.5, 1.0, s));
 
     const lumina = smoothstep(4.9, 5.02, s) * (1 - smoothstep(5.88, 6.0, s));
     u.uInk.value = lumina;

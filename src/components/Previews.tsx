@@ -120,7 +120,7 @@ export function AutopsyPreview() {
  * ──────────────────────────────────────────────────────────── */
 const COLS = 28;
 const ROWS = 11;
-const MSG = 'DEBUG DECRYPT 3.0';
+const MSG = 'A S T R I O N';
 const HEX = '0123456789ABCDEF<>/{}#*';
 
 export function CipherPreview() {
@@ -173,8 +173,8 @@ export function CipherPreview() {
       data-cursor
     >
       <div className="mb-3 flex justify-between font-mono text-[10px] uppercase tracking-[0.2em] text-[#c8f560]/60">
-        <span>ciphertext stream</span>
-        <span>hover to decrypt</span>
+        <span>scattered signals</span>
+        <span>hover to connect</span>
       </div>
       <div
         ref={grid}
@@ -188,7 +188,7 @@ export function CipherPreview() {
           </span>
         ))}
       </div>
-      <span className="sr-only">Animated cipher grid that decodes the words Debug Decrypt 3.0.</span>
+      <span className="sr-only">Animated cipher grid that decodes the word Astrion.</span>
       <div className="pointer-events-none absolute inset-0 bg-[repeating-linear-gradient(0deg,transparent_0,transparent_2px,rgba(0,0,0,0.25)_3px)]" />
     </div>
   );
@@ -250,13 +250,13 @@ export function LuminaPreview() {
               boxShadow: '0 30px 60px -20px rgba(80,60,30,0.25)',
             }}
           >
-            {i === tints.length - 1 && <span className="absolute bottom-4 left-4 font-serif text-3xl italic text-[#1a1714]">Lumina</span>}
+            {i === tints.length - 1 && <span className="absolute bottom-4 left-4 font-serif text-3xl italic text-[#1a1714]">TruthLens</span>}
           </div>
         ))}
       </div>
       <div className="absolute bottom-4 left-4 right-4 flex justify-between font-mono text-[10px] uppercase tracking-[0.2em] text-[#1a1714]/50">
-        <span>light study</span>
-        <span>move to refract</span>
+        <span>fake or real</span>
+        <span>move to focus</span>
       </div>
     </div>
   );

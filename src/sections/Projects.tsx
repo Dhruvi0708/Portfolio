@@ -94,7 +94,7 @@ function Chapter({ p, stage, onOpen }: { p: Project; stage: number; onOpen: (p: 
       <div data-preview className="relative mt-20 md:ml-[33%] md:mt-28" style={{ perspective: '1200px' }}>
         <Preview />
         <p className="label mt-4 text-bone-faint">
-          Fig. {p.index} — {p.theme === 'forensic' ? 'Investigation workbench, replayed' : p.theme === 'cipher' ? 'Decryption field' : 'Light study'}
+          Fig. {p.index} — {p.theme === 'forensic' ? 'Investigation workbench, replayed' : p.theme === 'cipher' ? 'Knowledge field, connecting' : 'Every article under the lens'}
         </p>
       </div>
 
